@@ -1,10 +1,20 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Sidebar from "./components/Navigation";
+
+import './App.scss';
 
 function App() {
   return (
-    <></>
+    <BrowserRouter>
+    <Sidebar />
+       <Routes>
+      {/* //nested routes
+      <Route path="/" element={}>
+        <Route path="expenses" element={} />
+        <Route path="invoices" element={} />
+  </Route>*/}
+    </Routes>
+  </BrowserRouter>
   );
 }
 
