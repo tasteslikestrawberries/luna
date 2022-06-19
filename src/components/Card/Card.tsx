@@ -4,10 +4,10 @@ interface ICardProps {
   title: string;
 }
 
-const Card: React.FC<ICardProps> = (props: ICardProps) => {
+const Card: React.FC<ICardProps> = ({title}) => {
   return (
     <div className={styles.card}>
-      <h1>{props.title}</h1>
+      <h1>{title}</h1>
     </div>
   );
 };

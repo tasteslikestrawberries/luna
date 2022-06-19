@@ -1,10 +1,12 @@
+@use "../../assets/scss/colors" as colors;
+
 .card {
   height: 100vh;
   background-color: azure;
   width: 100vw;
-  padding:20px;
+  padding: 20px;
 }
 
 h1 {
-  color: #8000ff;
+  color: colors.$primary;
 }
