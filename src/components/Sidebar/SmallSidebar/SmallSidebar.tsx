@@ -8,45 +8,34 @@ import {
 } from "react-bootstrap-icons";
 import placeholder from "../../../assets/images/placeholder.png";
 import { NavLink } from "react-router-dom";
-import { MouseEventHandler } from "react";
+import React, { MouseEventHandler } from "react";
 
 interface ISmallSidebarProps {
   onClick?: MouseEventHandler;
 }
 
-const SmallSidebar: React.FC<ISmallSidebarProps> = ({onClick}) => {
+interface INavLink {
+  to: string;
+  el: React.ReactComponentElement<any>;
+}
+
+const SmallSidebar: React.FC<ISmallSidebarProps> = ({ onClick }) => {
+  const NavLinks: INavLink[] = [
+    { to: "/", el: <img src={placeholder} alt="logo" /> },
+    { to: "/", el: <Grid1x2Fill size={24} /> },
+    { to: "/reminders", el: <BellFill size={24} /> },
+    { to: "/files", el: <Files size={24} /> },
+    { to: "/favorites", el: <BalloonHeartFill size={24} /> },
+    { to: "/my-profile", el: <PersonCircle size={24} /> },
+  ];
   return (
     <div className={styles.small}>
       <ul>
-        <li>
-        <NavLink to="/">
-        <img src={placeholder} alt="logo" />
-         </NavLink>
-        </li>
-        <li onClick={onClick}>
-          {/*can also pass: color="royalblue"*/}
-          <NavLink to="/">
-            <Grid1x2Fill size={24} />
-          </NavLink>
-        </li>
-        <li onClick={onClick}>
-          <NavLink to="/reminders">
-            <BellFill size={24} />
-          </NavLink>
-        </li>
-        <li onClick={onClick}>
-          <NavLink to="/files">
-            <Files size={24} />
-          </NavLink>
-        </li>
-        <li>
-          <BalloonHeartFill size={24} />
-        </li>
-        <li onClick={onClick}>
-          <NavLink to="/my-profile">
-            <PersonCircle size={24} />
-          </NavLink>
-        </li>
+        {NavLinks.map(({ to, el }, idx) => (
+          <li key={idx} onClick={onClick}>
+            <NavLink to={to}>{el}</NavLink>
+          </li>
+        ))}
       </ul>
     </div>
   );
