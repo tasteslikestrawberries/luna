@@ -5,9 +5,10 @@ import { MouseEventHandler } from "react";
 interface IBigSidebarProps {
   onClick?: MouseEventHandler;
   title?: string;
+  list?: React.ReactComponentElement<any>[];
 }
 
-const BigSidebar: React.FC<IBigSidebarProps> = ({ onClick, title }) => {
+const BigSidebar: React.FC<IBigSidebarProps> = ({ onClick, title, list }) => {
   return (
     <>
       <div className={styles.big}>
@@ -15,6 +16,9 @@ const BigSidebar: React.FC<IBigSidebarProps> = ({ onClick, title }) => {
         <button type="button" onClick={onClick}>
           <ChevronLeft size={32} />
         </button>
+        <ul>
+          <li> {list?.map((item) => item)}</li>
+        </ul>
       </div>
     </>
   );

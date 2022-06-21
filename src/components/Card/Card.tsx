@@ -1,13 +1,12 @@
 import styles from "./card.module.scss";
 
 interface ICardProps {
-  title: string;
 }
 
-const Card: React.FC<ICardProps> = ({title}) => {
+const Card: React.FC<ICardProps> = () => {
   return (
     <div className={styles.card}>
-      <h1>{title}</h1>
+      <h1>Luna App</h1>
     </div>
   );
 };

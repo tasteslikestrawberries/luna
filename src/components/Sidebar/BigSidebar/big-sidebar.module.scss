@@ -1,6 +1,8 @@
 @use "../../../assets/scss/colors" as colors;
 
 .big {
+  display: flex;
+  justify-content: center;
   height: 100vh;
   width: 16vw;
   background-color: #8000ff;
@@ -10,11 +12,16 @@
   //transition: all .35s ease-out;
 }
 
+h2 {
+  color: colors.$snow;
+  margin-top: 100px;
+}
+
 button {
   background-color: unset;
   border: none;
   color: colors.$snow;
   position: absolute;
-  top: 25px;
-  right: 0;
+  bottom: 30px;
+  right: 5px;
 }
